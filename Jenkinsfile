@@ -2,27 +2,28 @@ pipeline {
     agent any
 
     tools {
-        JDK 'JDK8'
-        maven 'Maven'   // Make sure Maven is configured in Jenkins
+        jdk 'JDK8'
+        maven 'Maven'
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                checkout https://github.com/Rohitgupta678/JUNIT_TESTING/edit/main/Jenkinsfile#LL4
+                git branch: 'main',
+                    url: 'https://github.com/Rohitgupta678/JUNIT_TESTING.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
     }
