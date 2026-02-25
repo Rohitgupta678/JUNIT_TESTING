@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     tools {
+        JDK 'JDK8'
         maven 'Maven'   // Make sure Maven is configured in Jenkins
     }
 
@@ -9,7 +10,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                checkout scm
+                checkout https://github.com/Rohitgupta678/JUNIT_TESTING/edit/main/Jenkinsfile#LL4
             }
         }
 
